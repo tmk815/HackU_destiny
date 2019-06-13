@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HackU_destiny</string>
+    <string name="login_button">Login</string>
 </resources>
