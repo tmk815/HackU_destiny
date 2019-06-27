@@ -3,7 +3,6 @@ package com.example.tmk815.hacku_destiny
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_main3.*
 
 class Main3Activity : AppCompatActivity() {
@@ -17,7 +16,7 @@ class Main3Activity : AppCompatActivity() {
         //ノート画像表示
 
         back3.setOnClickListener{
-            val intent = Intent(this, Main2Activity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
