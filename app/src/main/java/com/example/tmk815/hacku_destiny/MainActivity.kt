@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
 
         button.setOnClickListener {
-            var user = User(name.text.toString(),universityName.text.toString())
+            var user = User(name.text.toString(),universityName.text.toString(),paypayID.text.toString())
             myRef.setValue(user)
         }
     }
