@@ -2,11 +2,14 @@ package com.example.tmk815.hacku_destiny
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,5 +31,25 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("TEXT_KEY2", listing.text)
             startActivity(intent)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    // メニュー選択された時の処理
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_post -> {
+                val intent = Intent(this, PostActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+
     }
 }
