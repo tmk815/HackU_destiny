@@ -55,7 +55,7 @@ class AuthActivity : AppCompatActivity() {
                 // Successfully signed in
                 val user = FirebaseAuth.getInstance().currentUser
                 Log.d("UID", user?.uid)
-                val settingIntent = Intent(this, MainActivity::class.java)
+                val settingIntent = Intent(this, UserAddActivity::class.java)
                 startActivity(settingIntent)
                 finish()
                 // ...
