@@ -3,6 +3,7 @@
           package="com.example.tmk815.hacku_destiny">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
             android:allowBackup="true"

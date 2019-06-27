@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".PostActivity">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="科目名" android:inputType="text"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="何回目の講義か(数値のみ)" android:inputType="number"/>
+    <ImageView
+            android:id="@+id/notePicture"
+            android:layout_width="150dp"
+            android:layout_height="300dp"/>
+    <Button
+            android:text="ノート写真選択"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/note_picture_button"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="投稿"
+            android:id="@+id/new_post_button"
+    />
+</LinearLayout>
