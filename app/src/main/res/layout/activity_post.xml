@@ -7,13 +7,16 @@
               android:gravity="center_horizontal"
               android:orientation="vertical">
     <EditText
+            android:id="@+id/subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="科目名" android:inputType="text"/>
     <EditText
+            android:id="@+id/number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="何回目の講義か(数値のみ)" android:inputType="number"/>
+            android:hint="何回目の講義か(数値のみ)"
+            android:inputType="number"/>
     <ImageView
             android:id="@+id/notePicture"
             android:layout_width="150dp"
