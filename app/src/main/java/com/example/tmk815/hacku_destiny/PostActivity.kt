@@ -47,8 +47,8 @@ class PostActivity : AppCompatActivity() {
 
         new_post_button.setOnClickListener {
             val myRef =
-                database.getReference("post").child("中部大学").child(subject.text.toString()).child(currentUser!!.uid)
-                    .child(number.text.toString())
+                database.getReference("post").child("中部大学").child(subject.text.toString()).child(number.text.toString())
+                    .child(currentUser!!.uid)
             var post = Post(Integer.parseInt(number.text.toString()), downloadUri.toString())
             myRef.setValue(post)
         }
