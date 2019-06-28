@@ -1,6 +1,7 @@
 package com.example.tmk815.hacku_destiny
 
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.SimpleAdapter
@@ -29,20 +30,10 @@ class NoteListActivity : AppCompatActivity() {
                 Log.d("dataSnapshot", dataSnapshot.childrenCount.toString())
                 for (userID in dataSnapshot.children) {
                     var childData = HashMap<String, String>()
-                    val nameRef = database.getReference("user").child(userID.key.toString())
                     Log.d("uidString", userID.key.toString())
+                    childData["NAME"] = userID.child("name").getValue(String::class.java)!!
                     childData["URI"] = userID.child("notePictureUri").getValue(String::class.java)!!
-                    nameRef.addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(dataSnapshot: DataSnapshot) {
-                            //childData["NAME"] = dataSnapshot.child("name").getValue(String::class.java)!!
-                        }
-
-                        override fun onCancelled(error: DatabaseError) {
-                            // Failed to read value
-                            Log.w(ContentValues.TAG, "Failed to read value.", error.toException() as Throwable?)
-                        }
-
-                    })
+                    childData["USERID"] = userID.key.toString()
                     noteData.add(childData)
                 }
 
@@ -50,10 +41,21 @@ class NoteListActivity : AppCompatActivity() {
                     this@NoteListActivity,
                     noteData,
                     android.R.layout.simple_list_item_2,
-                    arrayOf("URI"),
+                    arrayOf("NAME"),
                     intArrayOf(android.R.id.text1)
                 )
                 note_list.adapter = adapter
+                // 項目をタップしたときの処理
+                note_list.setOnItemClickListener {parent, view, position, id ->
+                    val map = noteData[position]
+                    val intent = Intent(this@NoteListActivity, NoteDetailActivity::class.java)
+                    //intent変数をつなげる(第一引数はキー，第二引数は渡したい変数)
+                    intent.putExtra("URI",map["URI"])
+                    intent.putExtra("NAME",map["NAME"])
+                    intent.putExtra("USERID",map["USERID"])
+                    //画面遷移を開始
+                    startActivity(intent)
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {

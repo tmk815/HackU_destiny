@@ -19,7 +19,7 @@ class UserAddActivity : AppCompatActivity() {
 
 
         button.setOnClickListener {
-            var user = User(name.text.toString(), universityName.text.toString(), paypayID.text.toString())
+            var user = User(currentUser.displayName!!, universityName.text.toString(), paypayIDTextView.text.toString())
             myRef.setValue(user)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

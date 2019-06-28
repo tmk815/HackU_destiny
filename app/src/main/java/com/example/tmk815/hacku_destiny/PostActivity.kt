@@ -27,8 +27,8 @@ class PostActivity : AppCompatActivity() {
     }
 
     private var storageRef = FirebaseStorage.getInstance().reference
-    val currentUser = FirebaseAuth.getInstance().currentUser
-    val database = FirebaseDatabase.getInstance()
+    private val currentUser = FirebaseAuth.getInstance().currentUser
+    private val database = FirebaseDatabase.getInstance()
     var downloadUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class PostActivity : AppCompatActivity() {
             val myRef =
                 database.getReference("post").child("中部大学").child(subject.text.toString()).child(number.text.toString())
                     .child(currentUser!!.uid)
-            var post = Post(Integer.parseInt(number.text.toString()), downloadUri.toString())
+            var post = Post(currentUser.displayName!!, Integer.parseInt(number.text.toString()), downloadUri.toString())
             myRef.setValue(post)
         }
     }
