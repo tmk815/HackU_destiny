@@ -51,6 +51,8 @@ class PostActivity : AppCompatActivity() {
                     .child(currentUser!!.uid)
             var post = Post(currentUser.displayName!!, Integer.parseInt(number.text.toString()), downloadUri.toString())
             myRef.setValue(post)
+            Toast.makeText(this,"投稿しました！",Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 
